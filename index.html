@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CIFP Tony Gallardo — Aplicaciones del Centro</title>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <style>
+    :root {
+      --azul: #0d2b5e;
+      --azul-medio: #1a4a9e;
+      --azul-claro: #2563eb;
+      --dorado: #f59e0b;
+      --blanco: #f8fafc;
+      --gris: #e2e8f0;
+      --texto: #1e293b;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: linear-gradient(160deg, #0d2b5e 0%, #1a3a7a 50%, #0f1f45 100%);
+      min-height: 100vh;
+      color: var(--blanco);
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 18px;
+      text-align: left;
+      padding: 20px 20px;
+    }
+
+    .logo {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      object-fit: cover;
+      display: block;
+      flex-shrink: 0;
+      filter: drop-shadow(0 4px 16px rgba(0,0,0,0.5));
+      border: 2px solid rgba(255,255,255,0.2);
+    }
+
+    .header-texto {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    header h1 {
+      font-size: clamp(1.1rem, 3vw, 1.6rem);
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      color: #fff;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    }
+
+    header p {
+      margin-top: 2px;
+      font-size: 0.85rem;
+      color: #93c5fd;
+      font-weight: 400;
+    }
+
+    .divider {
+      display: none;
+    }
+
+    @media (max-width: 480px) {
+      header {
+        flex-direction: column;
+        text-align: center;
+        padding: 20px 16px 12px;
+        gap: 10px;
+      }
+      .logo { width: 64px; height: 64px; }
+    }
+
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 20px 20px 60px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 24px;
+    }
+
+    .card {
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 16px;
+      padding: 32px 24px 28px;
+      text-align: center;
+      text-decoration: none;
+      color: inherit;
+      transition: transform 0.2s, background 0.2s, box-shadow 0.2s;
+      backdrop-filter: blur(8px);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      background: rgba(255,255,255,0.13);
+      box-shadow: 0 12px 32px rgba(0,0,0,0.35);
+    }
+
+    .card .icono {
+      font-size: 56px;
+      line-height: 1;
+      filter: drop-shadow(0 2px 6px rgba(0,0,0,0.3));
+    }
+
+    .card h2 {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: #fff;
+      line-height: 1.3;
+    }
+
+    .card p {
+      font-size: 0.82rem;
+      color: #93c5fd;
+      line-height: 1.5;
+    }
+
+    .card .badge {
+      margin-top: 4px;
+      display: inline-block;
+      padding: 4px 14px;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      background: rgba(245,158,11,0.18);
+      color: var(--dorado);
+      border: 1px solid rgba(245,158,11,0.35);
+    }
+
+    /* colores de acento por tarjeta */
+    .card.tv      { border-top: 3px solid #6366f1; }
+    .card.cafe    { border-top: 3px solid #f97316; }
+    .card.cal     { border-top: 3px solid #10b981; }
+    .card.dental  { border-top: 3px solid #06b6d4; }
+    .card.social  { border-top: 3px solid #a855f7; }
+    .card.tic     { border-top: 3px solid #ef4444; }
+    .card.monitor { border-top: 3px solid #22c55e; }
+    .card.radio   { border-top: 3px solid #ec4899; }
+    .card.empresas { border-top: 3px solid #eab308; }
+
+    footer {
+      text-align: center;
+      padding: 24px 20px;
+      font-size: 0.82rem;
+      color: #64748b;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+
+    @media (max-width: 480px) {
+      .grid { grid-template-columns: 1fr; }
+      .card { padding: 24px 20px; }
+      .card .icono { font-size: 44px; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <img src="/logo.png" alt="CIFP Tony Gallardo" class="logo">
+  <div class="header-texto">
+    <h1>CIFP Tony Gallardo</h1>
+    <p>Portal de Aplicaciones del Centro</p>
+  </div>
+</header>
+
+<main>
+  <div class="grid">
+
+    <a href="https://myappsserver.duckdns.org/Tony_Panel_Doble/" class="card tv">
+      <div class="icono">📺</div>
+      <h2>Tony Gallardo TV</h2>
+      <p>Panel de contenidos para las pantallas del centro</p>
+      <span class="badge">Panel de control</span>
+    </a>
+
+    <a href="/Tony_Restauracion" class="card cafe">
+      <div class="icono">🍽️</div>
+      <h2>Cafetería Tony Gallardo</h2>
+      <p>Realiza tu pedido en la cafetería del centro</p>
+      <span class="badge">Pedidos</span>
+    </a>
+
+    <a href="/Tony_Calendario" class="card cal">
+      <div class="icono">📅</div>
+      <h2>Calendario Sala Profes</h2>
+      <p>Calendario de recordatorio de la sala de profes</p>
+      <span class="badge">Calendario</span>
+    </a>
+
+    <a href="/Tony_Bucodental" class="card dental">
+      <div class="icono">🦷</div>
+      <h2>Gestión Clínica Bucodental</h2>
+      <p>Gestión de pacientes y tratamientos del gabinete dental</p>
+      <span class="badge">Clínica</span>
+    </a>
+
+    <a href="/Tony_Integracion" class="card social">
+      <div class="icono">🤝</div>
+      <h2>Integración Social Tony Gallardo</h2>
+      <p>Herramientas para el módulo de integración social</p>
+      <span class="badge">Integración Social</span>
+    </a>
+
+    <a href="/Tony_incidencias" class="card tic">
+      <div class="icono">🔧</div>
+      <h2>Incidencias TIC Tony Gallardo</h2>
+      <p>Registro y seguimiento de incidencias tecnológicas</p>
+      <span class="badge">Soporte TIC</span>
+    </a>
+
+    <a href="https://myappsserver.duckdns.org/Tony_Monitor/" class="card monitor">
+      <div class="icono">📊</div>
+      <h2>Server Monitor</h2>
+      <p>Estado y monitorización del servidor</p>
+      <span class="badge">Monitorización</span>
+    </a>
+
+    <a href="https://myappsserver.duckdns.org/Tony_RadioAtlante/" class="card radio">
+      <div class="icono">📻</div>
+      <h2>Radio Atlante</h2>
+      <p>La voz del Tony Gallardo</p>
+      <span class="badge">Radio</span>
+    </a>
+
+    <a href="https://myappsserver.duckdns.org/Empresas_Tony_Gallardo/" class="card empresas">
+      <div class="icono">🏢</div>
+      <h2>Portal de Empresas</h2>
+      <p>Todas las empresas de la FEOE</p>
+      <span class="badge">FEOE</span>
+    </a>
+
+  </div>
+</main>
+
+<footer>
+  CIFP Tony Gallardo &mdash; Las Palmas de Gran Canaria &mdash; Gobierno de Canarias
+</footer>
+
+</body>
+</html>
